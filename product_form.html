@@ -1,0 +1,17 @@
+
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<body>
+    <h1>{% if form.instance.pk %}Edit Product{% else %}Create Product{% endif %}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}Save Changes{% else %}Create{% endif %}</button>
+    </form>
+    <a href="{% url 'index' %}">Back to Product List</a>
+</body>
+{% endblock %}
